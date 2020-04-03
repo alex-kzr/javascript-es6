@@ -1,28 +1,14 @@
-const namesArray = ['ryu', 'chun-li', 'ryu', 'alex'];
-console.log(namesArray);
+const symbolOne = Symbol('a generic name');
+const symbolTwo = Symbol('a generic name');
 
-const namesSet1 = new Set(['ryu', 'chun-li', 'ryu', 'alex']);
-const namesSet2 = new Set(namesArray);
-console.log(namesSet1, namesSet2);
+console.log(symbolOne, symbolTwo, typeof symbolOne);
+console.log(symbolOne === symbolTwo);
 
-const uniqueNamesArray1 = [...namesSet1];
-console.log(uniqueNamesArray1);
+const ninja = {};
+ninja.age = 30;
+ninja['belt'] = 'orange';
+ninja['belt'] = 'black';
 
-const uniqueNamesArray2 = [...new Set(namesArray)];
-console.log(uniqueNamesArray2);
-
-const ages = new Set();
-ages.add(20);
-ages.add(25).add(30);
-ages.delete(25);
-console.log(ages, ages.size, ages.has(30));
-ages.clear();
-console.log(ages);
-
-const ninjas = new Set([
-    {name: 'alex', age: 30},
-    {name: 'mario', age: 40},
-    {name: 'luigi', age: 35}
-]);
-
-ninjas.forEach(ninja => console.log(ninja.name, ninja.age));
+ninja[symbolOne] = 'ryu';
+ninja[symbolTwo] = 'chun-li';
+console.log(ninja);
